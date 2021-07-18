@@ -9,10 +9,25 @@
     <None Remove="Models\" />
     <None Remove="Interfaces\" />
     <None Remove="Service\" />
+    <None Remove="GraphQL.Server.Transports.AspNetCore.SystemTextJson" />
+    <None Remove="WakaTime" />
+    <None Remove="GraphQL" />
+    <None Remove="Type\" />
+    <None Remove="Schema\" />
+    <None Remove="Query\" />
+    <None Remove="Mutation\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Interfaces\" />
     <Folder Include="Service\" />
+    <Folder Include="Type\" />
+    <Folder Include="Schema\" />
+    <Folder Include="Query\" />
+    <Folder Include="Mutation\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="GraphQL.Server.Transports.AspNetCore.SystemTextJson" Version="5.0.2" />
+    <PackageReference Include="GraphQL" Version="4.5.0" />
   </ItemGroup>
 </Project>
