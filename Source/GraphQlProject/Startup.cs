@@ -2,6 +2,7 @@
 using GraphiQl;
 using GraphQL.Server;
 using GraphQL.Types;
+using GraphQlProject.Data;
 using GraphQlProject.Interfaces;
 using GraphQlProject.Mutation;
 using GraphQlProject.Query;
@@ -10,6 +11,7 @@ using GraphQlProject.Service;
 using GraphQlProject.Type;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -40,15 +42,19 @@ namespace GraphQlProject
                 options.EnableMetrics = false;
 
             }).AddSystemTextJson();
+
+            services.AddDbContext<GraphQLDbContext>(option => option.UseSqlServer());
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, GraphQLDbContext dbContext)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+            dbContext.Database.EnsureCreated();
             app.UseGraphiQl("/graphql");
             app.UseGraphQL<ISchema>();
         }

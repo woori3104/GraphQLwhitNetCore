@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using GraphQlProject.Data;
 using GraphQlProject.Interfaces;
 using GraphQlProject.Models;
 
@@ -7,36 +9,43 @@ namespace GraphQlProject.Service
 {
     public class ProductService : IProduct
     {
-        private static List<Product> products = new List<Product>()
+        private GraphQLDbContext _dbContext;
+
+        public ProductService(GraphQLDbContext dbContext)
         {
-            new Product(){ Id= 0, Name="Coffee", Price = 10},
-            new Product(){ Id= 0, Name="Tea", Price = 15},
-        };
+            _dbContext = dbContext;
+        }
 
         public Product AddProduct(Product product)
         {
-            products.Add(product);
+            _dbContext.Products.Add(product);
+            _dbContext.SaveChanges();
             return product;
         }
 
         public void DeleteProduct(int id)
         {
-            products.RemoveAt(id);
+            var projectObj = _dbContext.Products.Find(id);
+            _dbContext.Products.Remove(projectObj);
+            _dbContext.SaveChanges();
         }
 
         public List<Product> GetAllProducts()
         {
-            return products;
+            return _dbContext.Products.ToList();
         }
 
         public Product GetProductById(int id)
         {
-            return products.Find(p => p.Id == id);
+            return _dbContext.Products.Find(id);
         }
 
         public Product UpdateProduct(int id, Product product)
         {
-            products[id] = product;
+            var projectObj = _dbContext.Products.Find(id);
+            projectObj.Name = product.Name;
+            projectObj.Price = product.Price;
+            _dbContext.SaveChanges();
             return product;
         }
     }
