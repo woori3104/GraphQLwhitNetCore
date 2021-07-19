@@ -16,6 +16,8 @@
     <None Remove="Schema\" />
     <None Remove="Query\" />
     <None Remove="Mutation\" />
+    <None Remove="GraphQL.Server.Ui.GraphiQL" />
+    <None Remove="graphiql" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -28,6 +30,8 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="GraphQL.Server.Transports.AspNetCore.SystemTextJson" Version="5.0.2" />
+    <PackageReference Include="GraphQL.Server.Ui.GraphiQL" Version="5.0.2" />
     <PackageReference Include="GraphQL" Version="4.5.0" />
+    <PackageReference Include="graphiql" Version="2.0.0" />
   </ItemGroup>
 </Project>

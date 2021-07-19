@@ -1,17 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
+using GraphiQl;
+using GraphQL.Server;
+using GraphQL.Types;
 using GraphQlProject.Interfaces;
+using GraphQlProject.Mutation;
+using GraphQlProject.Query;
+using GraphQlProject.Schema;
 using GraphQlProject.Service;
+using GraphQlProject.Type;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace GraphQlProject
 {
@@ -29,6 +30,16 @@ namespace GraphQlProject
         {
             services.AddControllers();
             services.AddTransient<IProduct, ProductService>();
+            services.AddSingleton<ProductType>();
+            services.AddSingleton<ProductQuery>();
+            services.AddSingleton<ProductMutation>();
+            services.AddSingleton<ISchema, ProductSchema>();
+
+            services.AddGraphQL(options =>
+            {
+                options.EnableMetrics = false;
+
+            }).AddSystemTextJson();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,17 +49,8 @@ namespace GraphQlProject
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseHttpsRedirection();
-
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseGraphiQl("/graphql");
+            app.UseGraphQL<ISchema>();
         }
     }
 }

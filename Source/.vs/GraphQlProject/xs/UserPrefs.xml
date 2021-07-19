@@ -1,22 +1,35 @@
-﻿<Properties StartupConfiguration="{36EE3DD1-FA38-4B09-88A8-1CAE33924F61}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
+﻿<Properties StartupConfiguration="{36EE3DD1-FA38-4B09-88A8-1CAE33924F61}|Default">
   <MonoDevelop.Ide.ItemProperties.GraphQlProject PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GraphQlProject/Query/productQuery.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GraphQlProject/Mutation/ProductMutation.cs">
     <Files>
       <File FileName="GraphQlProject/Service/ProductService.cs" Line="17" Column="9" />
       <File FileName="GraphQlProject/Models/Product.cs" Line="8" Column="28" />
-      <File FileName="GraphQlProject/Startup.cs" Line="34" Column="18" />
+      <File FileName="GraphQlProject/Startup.cs" Line="36" Column="12" />
       <File FileName="GraphQlProject/Controllers/ProductController.cs" Line="19" Column="1" />
-      <File FileName="GraphQlProject/Type/ProductType.cs" Line="14" Column="10" />
-      <File FileName="GraphQlProject/Query/productQuery.cs" Line="4" Column="47" />
+      <File FileName="GraphQlProject/Type/ProductType.cs" Line="11" Column="12" />
+      <File FileName="GraphQlProject/Query/productQuery.cs" Line="11" Column="52" />
+      <File FileName="GraphQlProject/Schema/ProductSchema.cs" Line="12" Column="16" />
+      <File FileName="../../Library/Caches/VisualStudio/8.0/Symbols/graphql-dotnet/graphql-dotnet/b6572d931b5094a28ed33a1391ed5a53cf20ac38/src/GraphQL/Types/Composite/ComplexGraphType.cs" Line="114" Column="48" />
+      <File FileName="GraphQlProject/Program.cs" Line="16" Column="1" />
+      <File FileName="GraphQlProject/Type/ProductInputType.cs" Line="12" Column="41" />
+      <File FileName="GraphQlProject/Mutation/ProductMutation.cs" Line="25" Column="57" />
+      <File FileName="GraphQlProject/Interfaces/IProduct.cs" Line="12" Column="14" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GraphQlProject" expanded="True">
             <Node name="GraphQlProject" expanded="True">
-              <Node name="Query" expanded="True">
-                <Node name="productQuery.cs" selected="True" />
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
               </Node>
+              <Node name="Interfaces" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Mutation" expanded="True">
+                <Node name="ProductMutation.cs" selected="True" />
+              </Node>
+              <Node name="Query" expanded="True" />
+              <Node name="Schema" expanded="True" />
               <Node name="Type" expanded="True" />
             </Node>
           </Node>
@@ -26,6 +39,9 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <Debugger.DebugSourceFolders>
+    <String>/Users/woorikim/Library/Caches/VisualStudio/8.0/Symbols/graphql-dotnet/graphql-dotnet/b6572d931b5094a28ed33a1391ed5a53cf20ac38</String>
+  </Debugger.DebugSourceFolders>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

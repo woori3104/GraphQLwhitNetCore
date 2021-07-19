@@ -45,6 +45,14 @@
             "GraphQL.Server.Transports.AspNetCore.SystemTextJson": {
               "target": "Package",
               "version": "[5.0.2, )"
+            },
+            "GraphQL.Server.Ui.GraphiQL": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            },
+            "graphiql": {
+              "target": "Package",
+              "version": "[2.0.0, )"
             }
           },
           "imports": [

@@ -6,12 +6,12 @@ using GraphQlProject.Type;
 
 namespace GraphQlProject.Query
 {
-    public class productQuery :ObjectGraphType
+    public class ProductQuery :ObjectGraphType
     {
-        public productQuery(IProduct productService)
+        public ProductQuery(IProduct productService)
         {
             Field<ListGraphType<ProductType>>("products", resolve: context => { return productService.GetAllProducts(); });
-            Field<ProductType>("products",arguments:
+            Field<ProductType>("product",arguments:
                 new QueryArguments(new QueryArgument<IntGraphType> { Name = "id"}),
 
                 resolve: context =>
